@@ -78,7 +78,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/hands.jpg'); /* Replace with your background image path */
+    background-image: url('/images/hands.jpg'); /* Replace with your background image path */
     background-size: cover;
     background-position: center;
     filter: blur(20px); /* Apply the blur effect directly to the image */
