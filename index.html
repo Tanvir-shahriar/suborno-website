@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shuborno</title>
+  <link rel="stylesheet" href="/demo/test.css">
+
+  <!-- Font imports -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Galada&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="showHomePage()">
+      <img src="/wmremove-transformed.png" alt="Logo" class="logo-image">
+    </div>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#">হটলাইন নম্বর</a></li>
+      <li><a href="#">টেলিমেডিসিন সেবা</a></li>
+      <li><a href="#">চাকরির তথ্য</a></li>
+      <li><a href="#">ইমপোরিয়া</a></li>
+      <li><a href="#">শিক্ষামূলক কোর্স</a></li>
+      <li><a href="#">বুদ্ধি ভিত্তিক গেম</a></li>
+      <li><a href="#">অডিওবুক</a></li>
+      <li><a href="#">অনুবাদ</a></li>
+      <li><a href="#">প্রতিবন্ধী সেবা সম্পর্কিত তথ্য</a></li>
+    </ul>
+  </nav>
+
+  <section id="home-page" class="home-page">
+    <div class="background"></div> <!-- This is the div for the blurred background -->
+    <!-- Container to hold both cones and content side by side -->
+  <div class="main-content">
+    <!-- Cones -->
+    <div class="cones">
+      <img src="/images/leg.jpg" alt="Cone 1" class="cone cone-left">
+      <img src="/images/blind.jpeg" alt="Cone 2" class="cone cone-right">
+      <img src="/images/earphone.jpeg" alt="cone 3" class="cone cone-third">
+    </div>
+    <div class="content galada-regular">
+      <h1>শুভর্ণ: প্রতিবন্ধীদের আলোর পথ</h1>
+      <p>জরুরি সেবা, টেলিমেডিসিন, চাকরির খবর,<br>
+        প্রশিক্ষণ, গেম, অডিওবই, জ্ঞানের ডোর।<br>
+        অধিকার, সুবিধা, সুরক্ষার ঠিকানা,<br>
+        শুভর্ণ দেবে জীবনে নতুন প্রত্যাশা।<br>
+        বাংলা-ইংরেজি অনুবাদে সহজ সমাধান,<br>
+        সব বাধা পেরিয়ে আসবে জয়ের গান।</p>
+    </div>
+  </section>
+
+  <script>
+    // Show the home page content when the logo is clicked
+    function showHomePage() {
+        const homePage = document.querySelector('#home-page');
+        
+        // Ensure the home page is displayed with Flexbox for centering
+        homePage.style.display = 'flex'; // Use 'flex' to maintain centering
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Toggle the nav menu on hamburger icon click
+        hamburger.addEventListener('click', (e) => {
+            navLinks.classList.toggle('show');
+            e.stopPropagation(); // Prevent the click from propagating to the document
+        });
+
+        // Close the nav menu when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('show');
+            }
+        });
+
+        // Close the menu when a menu item is clicked
+        navLinks.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    });
+</script>
+
+  
+</body>
+</html>

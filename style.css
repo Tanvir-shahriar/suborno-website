@@ -1,0 +1,252 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7ecff;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d6b4fc;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer; /* Makes the logo clickable */
+}
+
+.logo-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Circular image */
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a306d;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a306d;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2a1745;
+}
+
+/* Home Page Section */
+.home-page {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Blurred Background */
+.home-page .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/hands.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px); /* Apply the blur effect directly to the image */
+    z-index: -1; /* Push behind the content */
+}
+
+/* Content on top of blurred background */
+.home-page .content {
+    position: relative;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    padding: 20px;
+}
+
+/* Heading and Paragraph Styling */
+.home-page h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.home-page p {
+    font-size: 30px;
+    line-height: 1.6;
+}
+
+/* Font Styling */
+.galada-regular {
+    font-family: "Galada", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Main content container */
+.home-page .main-content {
+    display: flex; /* Align items horizontally */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Make sure it takes up full viewport height */
+    gap: 30px; /* Add some space between cones and content */
+    padding: 0 20px;
+}
+
+/* Symmetrical Cones Styling */
+.home-page .cones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the cones vertically */
+    align-items: center;
+    gap: 30px; /* Add space between cones */
+    padding-top: 190px;
+}
+
+.home-page .cone {
+    height: auto; /* Maintain aspect ratio */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow to the cones */
+    border-radius: 10px; /* Optional: Add rounded corners for a softer look */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Add hover effect for cones */
+.home-page .cone:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+/* Cone 1 */
+.home-page .cone-left {
+    width: 300px; /* Adjust the width of Cone 1 */
+    transform: translateX(-20px); /* Move Cone 1 to the left */
+    
+}
+
+/* Cone 2 */
+.home-page .cone-right {
+    width: 350px; /* Adjust the width of Cone 2 */
+    transform: translateX(50px); /* Move Cone 2 to the right */
+}
+
+/* Cone 3 */
+.home-page .cone-third {
+    width: 300px; /* Adjust the width of Cone 3 */
+    transform: translateX(-20px); /* Move Cone 3 to the left */
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #4a306d;
+}
+
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+        background-color: #d6b4fc;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Adjust for home page when on mobile */
+    .home-page h1 {
+        font-size: 30px;
+    }
+
+    .home-page p {
+        font-size: 20px;
+    }
+
+    .home-page .cone-left,
+    .home-page .cone-right,
+    .home-page .cone-third {
+        width: 200px; /* Further reduce size of cones on smaller screens */
+        transform: translateX(0px); /* Reset translation for better alignment */
+    }
+
+    .home-page .main-content {
+        flex-direction: column; /* Stack the items vertically on small screens */
+        gap: 20px; /* Adjust spacing between items */
+    }
+}
+
+@media (max-width: 480px) {
+    .home-page h1 {
+        font-size: 24px;
+    }
+
+    .home-page p {
+        font-size: 16px;
+    }
+
+    .home-page .cone-left,
+    .home-page .cone-right,
+    .home-page .cone-third {
+        width: 150px; /* Make cones smaller on very small screens */
+    }
+}
